@@ -191,8 +191,14 @@ angular.module('bahmni.registration')
                 return ($scope.patient.causeOfDeath || $scope.patient.deathDate) && $scope.patient.dead;
             };
 
+            var assembleSearchableName = function (givenName, middleName, familyName) {
+                return _.compact([givenName, middleName, familyName]).join(" ");
+            };
+
             $scope.searchSimilarPatients = function () {
-                return patientService.searchSimilar($scope.patient.givenName, $scope.patient.gender)
+                return patientService.searchSimilar(
+                    assembleSearchableName($scope.patient.givenName, $scope.patient.middleName, $scope.patient.familyName),
+                    $scope.patient.gender)
                 .then(function (response) {
                     if (response.pageOfResults.length === 0) {
                         $scope.hasSimilarSearchResults = false;

@@ -344,15 +344,17 @@ describe('PatientCommonController', function () {
                                                              birthDate:"1990-05-12", givenName:"Sue", middleName:"Maria", familyName:"Smith", gender:"F",
                                                              dateCreated:1527070797000, hasBeenAdmitted:false, age:"46"}]};
 
-        it("should call search for similar patients with the name and gender from the input fields", function() {
+        it("should call search for similar patients with any given name parts and gender from the input fields", function() {
             scope.patient = {
                 "givenName": "john",
+                "middleName": "peter",
+                "familyName": "bar",
                 "gender": "Male"
              };
 
             scope.searchSimilarPatients();
 
-            expect(patientService.searchSimilar).toHaveBeenCalledWith("john", "Male");
+            expect(patientService.searchSimilar).toHaveBeenCalledWith("john peter bar", "Male");
         });
 
         it("should show and hide the similar search section depending on returned results", function () {
