@@ -25,42 +25,42 @@
 
               <span data-ng-switch="::isAutoComplete('givenName')">
                   <input data-ng-switch-when="true"
-                         type="text" id="givenName" ng-model="$parent.patient.givenName" ng-blur="searchSimilarPatients()" non-blank pattern-validate
+                         type="text" id="givenName" ng-model="$parent.patient.givenName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" non-blank pattern-validate
                          my-autocomplete source="getAutoCompleteList" response-map="getDataResults"
                          data-item-type="personName"
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_FIRSTNAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_NAME' | translate}}">
 
                   <input data-ng-switch-default
-                         type="text" id="givenName" ng-model="patient.givenName" ng-blur="searchSimilarPatients()" non-blank pattern-validate
+                         type="text" id="givenName" ng-model="patient.givenName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" non-blank pattern-validate
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_FIRSTNAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_NAME' | translate}}">
               </span>
 
               <span ng-show="::showMiddleName" data-ng-switch="::isAutoComplete('middleName')">
                   <input data-ng-switch-when="true"
-                         type="text" id="middleName" ng-model="$parent.patient.middleName" ng-blur="searchSimilarPatients()" pattern-validate
+                         type="text" id="middleName" ng-model="$parent.patient.middleName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" pattern-validate
                          my-autocomplete source="getAutoCompleteList" response-map="getDataResults"
                          data-item-type="personName"
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_MIDDLE_NAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_MIDDLE_NAME' | translate}}">
 
                   <input data-ng-switch-default
-                         type="text" id="middleName" ng-model="patient.middleName" ng-blur="searchSimilarPatients()" pattern-validate
+                         type="text" id="middleName" ng-model="patient.middleName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" pattern-validate
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_MIDDLE_NAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_MIDDLE_NAME' | translate}}">
               </span>
 
               <span ng-show="::showLastName" data-ng-switch="::isAutoComplete('familyName')">
                   <input data-ng-switch-when="true"
-                         type="text" id="familyName" ng-model="$parent.patient.familyName" ng-blur="searchSimilarPatients()" pattern-validate
+                         type="text" id="familyName" ng-model="$parent.patient.familyName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" pattern-validate
                          my-autocomplete source="getAutoCompleteList" response-map="getDataResults"
                          data-item-type="personName"
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_LAST_NAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_LAST_NAME' | translate}}" ng-required="::isLastNameMandatory">
 
                   <input data-ng-switch-default
-                         type="text" id="familyName" ng-model="patient.familyName" ng-blur="searchSimilarPatients()" pattern-validate
+                         type="text" id="familyName" ng-model="patient.familyName" ng-model-options="{updateOn: 'blur'}" ng-change="searchSimilarPatients()" pattern-validate
                          placeholder="{{ ::'REGISTRATION_LABEL_PATIENT_LAST_NAME' | translate}}"
                          title="{{::'REGISTRATION_LABEL_PATIENT_ENTER_LAST_NAME' | translate}}" ng-required="::isLastNameMandatory">
               </span>
